@@ -1,11 +1,14 @@
 import Image from "next/image";
-import { Photos } from "unsplash-js/dist/methods/search/types/response";
+import { useFormatter } from "next-intl";
 import { Basic as Photo } from "unsplash-js/dist/methods/photos/types";
 
 type Props = {
   photo: Photo;
 };
 export function PhotoItem({ photo }: Props) {
+  const format = useFormatter();
+  const updateAt = new Date(photo.updated_at);
+  const formattedDate = format.relativeTime(updateAt);
   return (
     <div className="m-auto w-[324px]">
       <div className="relative w-full h-[300px]">
@@ -27,7 +30,7 @@ export function PhotoItem({ photo }: Props) {
           />
           <p className="text-sm font-semibold truncate">{photo.user.name}</p>
         </div>
-        <p>{photo.updated_at}</p>
+        <p>{formattedDate}</p>
       </div>
     </div>
   );
