@@ -10,7 +10,11 @@ export function PhotoItem({ photo }: Props) {
   const updateAt = new Date(photo.updated_at);
   const formattedDate = format.relativeTime(updateAt);
   return (
-    <div className="m-auto w-[324px]">
+    <a
+      href={photo.links.html + "?utm_source=403665&utm_medium=referral"}
+      target="_blank"
+      className="m-auto w-[324px] shadow-md rounded-xl"
+    >
       <div className="relative w-full h-[300px]">
         <Image
           src={photo.urls.regular}
@@ -19,8 +23,8 @@ export function PhotoItem({ photo }: Props) {
           alt={photo.alt_description || photo.description || photo.id}
         />
       </div>
-      <div className="flex flex-col mt-6 gap-2">
-        <div className="flex flex-row items-center gap-3 justify-between">
+      <div className="flex flex-col my-6 gap-2">
+        <div className="flex flex-row items-center gap-3 justify-between mx-2 ">
           <div className="flex flex-row gap-2 items-center">
             <Image
               src={photo.user.profile_image.small}
@@ -36,6 +40,6 @@ export function PhotoItem({ photo }: Props) {
           <p className="text-sm">{formattedDate}</p>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
