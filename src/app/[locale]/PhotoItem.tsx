@@ -20,17 +20,21 @@ export function PhotoItem({ photo }: Props) {
         />
       </div>
       <div className="flex flex-col mt-6 gap-2">
-        <div className="flex flex-row items-center gap-3">
-          <Image
-            src={photo.user.profile_image.small}
-            width={24}
-            height={24}
-            alt={photo.user.name}
-            className="rounded-full flex shrink-0"
-          />
-          <p className="text-sm font-semibold truncate">{photo.user.name}</p>
+        <div className="flex flex-row items-center gap-3 justify-between">
+          <div className="flex flex-row gap-2 items-center">
+            <Image
+              src={photo.user.profile_image.small}
+              width={24}
+              height={24}
+              alt={photo.user.name}
+              className="rounded-full flex shrink-0"
+            />
+            <p className="text-base font-semibold truncate">
+              {photo.user.name}
+            </p>
+          </div>
+          <p className="text-sm">{formattedDate}</p>
         </div>
-        <p>{formattedDate}</p>
       </div>
     </div>
   );
