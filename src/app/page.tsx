@@ -1,6 +1,7 @@
 import Image from "next/image";
 import UnsplashApiClient from "./UnsplashApiClient";
 import { PhotoGrid } from "./PhotoGrid";
+import { PhotoViewer } from "./PhotoViewer";
 
 export default async function Home() {
   const topicSlug = "street-photography";
@@ -17,7 +18,10 @@ export default async function Home() {
 
   return (
     <div>
-      <PhotoGrid photos={photosRequest.response?.results} />
+      <PhotoViewer
+        photos={photosRequest.response?.results}
+        coverPhoto={topicRequest?.response?.cover_photo}
+      />
     </div>
   );
 }

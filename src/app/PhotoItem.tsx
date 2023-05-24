@@ -7,11 +7,11 @@ type Props = {
 };
 export function PhotoItem({ photo }: Props) {
   return (
-    <div>
+    <div className="relative w-[324px] h-[300px] m-auto">
       <Image
         src={photo.urls.regular}
-        sizes="33vw"
         fill
+        className="object-cover w-full h-full"
         alt={photo.alt_description || photo.description || photo.id}
       />
     </div>
