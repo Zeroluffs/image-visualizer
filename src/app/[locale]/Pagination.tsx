@@ -26,7 +26,7 @@ export function Pagination({ pageInfo, orderBy }: Props) {
     };
   }
   return (
-    <div className="flex items-center  justify-center gap-3 py-8">
+    <div className="flex gap-3 py-8 items-center justify-center">
       {pageInfo.page > 1 && (
         <Link aria-label={t("prev")} href={getHref(pageInfo.page - 1)}>
           <ArrowLeftIcon height={24} />

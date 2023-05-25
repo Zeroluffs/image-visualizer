@@ -6,7 +6,7 @@ type Props = {
 };
 export function PhotoGrid({ photos }: Props) {
   return (
-    <div className="grid cols-1 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
       {photos?.map((photo) => (
         <PhotoItem key={photo.id} photo={photo} />
       ))}

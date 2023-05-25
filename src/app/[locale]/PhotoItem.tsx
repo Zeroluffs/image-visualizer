@@ -13,9 +13,9 @@ export function PhotoItem({ photo }: Props) {
     <a
       href={photo.links.html + "?utm_source=403665&utm_medium=referral"}
       target="_blank"
-      className="m-auto w-[324px] shadow-md rounded-xl"
+      className="w-[324px] md:w-[496px] lg:w-[600px] shadow-md rounded-xl"
     >
-      <div className="relative w-full h-[300px]">
+      <div className="relative w-full h-[300px] lg:h-[600px]">
         <Image
           src={photo.urls.regular}
           fill

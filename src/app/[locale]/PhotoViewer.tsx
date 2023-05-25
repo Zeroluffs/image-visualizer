@@ -23,7 +23,7 @@ export function PhotoViewer({ coverPhoto, photos, orderBy, pageInfo }: Props) {
         title={t("title")}
         description={t("description")}
       />
-      <div className="flex justify-start items-center">
+      <div className="m-auto w-[324px] md:w-[1024px] lg:w-[1280px] lg:max-w-7xl flex flex-col">
         <OrderBySelect orderBy={orderBy}>
           {[OrderBy.POPULAR, OrderBy.LATEST].map((value) => (
             <option key={value} value={value}>
@@ -31,9 +31,11 @@ export function PhotoViewer({ coverPhoto, photos, orderBy, pageInfo }: Props) {
             </option>
           ))}
         </OrderBySelect>
+        <div className="">
+          <PhotoGrid photos={photos} />
+          <Pagination orderBy={orderBy} pageInfo={pageInfo} />
+        </div>
       </div>
-      <PhotoGrid photos={photos} />
-      <Pagination orderBy={orderBy} pageInfo={pageInfo} />
     </>
   );
 }
