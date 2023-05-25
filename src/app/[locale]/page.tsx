@@ -1,6 +1,8 @@
 import UnsplashApiClient from "./UnsplashApiClient";
 import { PhotoViewer } from "./PhotoViewer";
 import { OrderBy } from "unsplash-js";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -28,12 +30,18 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <div>
-      <PhotoViewer
-        orderBy={orderBy}
-        photos={photosRequest.response?.results}
-        coverPhoto={topicRequest?.response?.cover_photo}
-        pageInfo={{ page, size, totalElements: photosRequest.response?.total! }}
-      />
+      <Suspense fallback={<Loading />}>
+        <PhotoViewer
+          orderBy={orderBy}
+          photos={photosRequest.response?.results}
+          coverPhoto={topicRequest?.response?.cover_photo}
+          pageInfo={{
+            page,
+            size,
+            totalElements: photosRequest.response?.total!,
+          }}
+        />
+      </Suspense>
     </div>
   );
 }
